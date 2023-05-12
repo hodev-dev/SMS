@@ -52,8 +52,10 @@ module.exports = {
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
       colors: {
-        primary: '#023e8a',
-        secondary: '#0096c7',
+        primary: '#0e0c28',
+        secondary: '#24274a',
+        borderColor: "#31345D",
+        textColor: "#676DA7",
         accent: '#FFD04B',
         panel: '#F5F5F5',
         danger: '#A53737',

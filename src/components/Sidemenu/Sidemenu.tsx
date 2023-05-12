@@ -1,18 +1,17 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
-const MenuItem = ({ item, level = 1 }) => {
+const MenuItem = ({ item }) => {
+    const { level } = item;
+    console.log("🚀 ~ file: Sidemenu.tsx:6 ~ MenuItem ~ item:", item)
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = () => setIsOpen(!isOpen);
 
     return (
         <li dir={ "rtl" }>
-            <motion.div
-                className="flex transition-none items-center cursor-pointer text-indigo-700 border-b bg-white  font-medium text-sm h-14 p-2 hover:bg-indigo-700 hover:text-white"
+            <div
+                className={ `flex transition-none p-4 items-center cursor-pointer text-textColor border-b  ${level == 1 ? "bg-primary border-borderColor" : "bg-secondary border-borderColor"}  font-medium text-sm h-12  hover:bg-gradient-to-bl  hover:from-indigo-900 hover:to-secondary hover:text-white ` }
                 onClick={ toggleOpen }
-                initial={ {} }
-                animate={ {} }
-                exit={ {} }
             >
                 <span className="mr-2">{ item.label }</span>
                 { item.children && (
@@ -25,7 +24,7 @@ const MenuItem = ({ item, level = 1 }) => {
                         &gt;
                     </motion.span>
                 ) }
-            </motion.div>
+            </div>
             { item.children && (
                 <AnimatePresence>
                     { isOpen && (
@@ -37,7 +36,7 @@ const MenuItem = ({ item, level = 1 }) => {
                             transition={ { duration: 0.3 } }
                         >
                             { item.children.map((child) => (
-                                <MenuItem key={ child.label } item={ child } level={ level + 1 } />
+                                <MenuItem key={ child.id + child.level } item={ child } />
                             )) }
                         </motion.ul>
                     ) }

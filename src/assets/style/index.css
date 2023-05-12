@@ -2,49 +2,49 @@
 @tailwind components;
 
 @font-face {
-    font-family: IRANSansX;
-    font-style: normal;
-    font-weight: bold;
-    src: url("../Webfonts/fonts/woff/IRANSansX-Bold.woff") format("woff");
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../Webfonts/fonts/woff/IRANSansX-Bold.woff") format("woff");
 }
 
 @font-face {
-    font-family: IRANSansX;
-    font-style: normal;
-    font-weight: normal;
-    src: url("../Webfonts/fonts/woff/IRANSansX-Regular.woff") format("woff");
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../Webfonts/fonts/woff/IRANSansX-Regular.woff") format("woff");
 }
 
 .fa-num {
-    -moz-font-feature-settings: "ss02";
-    -webkit-font-feature-settings: "ss02";
-    font-feature-settings: "ss02";
+  -moz-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02";
 }
 
 .swal2-title,
 .swal2-moda {
-    font-family: IRANSansX !important;
+  font-family: IRANSansX !important;
 }
 
 .side-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sub-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-  
-  .sub-menu-nested {
-    margin-right: 10px;
-  }
-  
-  .sub-menu-icon {
-    margin-right: auto;
-  }
-  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sub-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.sub-menu-nested {
+  margin-right: 1rem;
+}
+
+.sub-menu-icon {
+  margin-right: auto;
+}
+
 @tailwind utilities;

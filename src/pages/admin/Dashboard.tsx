@@ -1,197 +1,136 @@
+import LOGO from '@/assets/img/logo.png';
+import PROFILE from '@/assets/img/profile.png';
 import SideMenu from "@/components/Sidemenu/Sidemenu";
 import { AnimatePresence, motion } from "framer-motion";
-import { Fragment, useCallback, useState } from "react";
+import { useState } from "react";
+import { AreaChart } from "../AreaChart";
+import { AreaChart2 } from "../AreaChart2";
+import { AreaChart3 } from "../AreaChart3";
 
 function Dashboard() {
     const [show, setShow] = useState(true);
     const items = [
         {
             id: 1,
+            level: 1,
             label: 'Dashboard',
         },
         {
             id: 2,
+            level: 1,
             label: 'Customers',
             children: [
                 {
                     id: 3,
+                    level: 2,
                     label: 'All Customers',
                     children: [
                         {
                             id: 10,
+                            level: 3,
                             label: 'All Customers',
                             children: [
                                 {
                                     id: 101,
+                                    level: 4,
                                     label: 'All Customers',
                                 },
                                 {
                                     id: 102,
+                                    level: 4,
                                     label: 'All Customers',
                                 },
                             ]
                         },
                         {
                             id: 11,
+                            level: 3,
                             label: 'All Customers',
                         },
                     ]
                 },
                 {
                     id: 4,
+                    level: 2,
                     label: 'New Customer',
                 },
             ],
         },
         {
             id: 5,
+            level: 1,
             label: 'Orders',
         },
     ];
 
-    const data = [
-        {
-            "country": "AD",
-            "hot dog": 64,
-            "hot dogColor": "hsl(155, 70%, 50%)",
-            "burger": 179,
-            "burgerColor": "hsl(176, 70%, 50%)",
-            "sandwich": 91,
-            "sandwichColor": "hsl(126, 70%, 50%)",
-            "kebab": 166,
-            "kebabColor": "hsl(195, 70%, 50%)",
-            "fries": 133,
-            "friesColor": "hsl(50, 70%, 50%)",
-            "donut": 72,
-            "donutColor": "hsl(128, 70%, 50%)"
-        },
-        {
-            "country": "AE",
-            "hot dog": 160,
-            "hot dogColor": "hsl(90, 70%, 50%)",
-            "burger": 114,
-            "burgerColor": "hsl(31, 70%, 50%)",
-            "sandwich": 63,
-            "sandwichColor": "hsl(155, 70%, 50%)",
-            "kebab": 26,
-            "kebabColor": "hsl(6, 70%, 50%)",
-            "fries": 115,
-            "friesColor": "hsl(345, 70%, 50%)",
-            "donut": 16,
-            "donutColor": "hsl(27, 70%, 50%)"
-        },
-        {
-            "country": "AF",
-            "hot dog": 166,
-            "hot dogColor": "hsl(229, 70%, 50%)",
-            "burger": 109,
-            "burgerColor": "hsl(282, 70%, 50%)",
-            "sandwich": 53,
-            "sandwichColor": "hsl(56, 70%, 50%)",
-            "kebab": 172,
-            "kebabColor": "hsl(16, 70%, 50%)",
-            "fries": 158,
-            "friesColor": "hsl(172, 70%, 50%)",
-            "donut": 153,
-            "donutColor": "hsl(197, 70%, 50%)"
-        },
-        {
-            "country": "AG",
-            "hot dog": 77,
-            "hot dogColor": "hsl(133, 70%, 50%)",
-            "burger": 110,
-            "burgerColor": "hsl(27, 70%, 50%)",
-            "sandwich": 128,
-            "sandwichColor": "hsl(334, 70%, 50%)",
-            "kebab": 62,
-            "kebabColor": "hsl(167, 70%, 50%)",
-            "fries": 129,
-            "friesColor": "hsl(204, 70%, 50%)",
-            "donut": 187,
-            "donutColor": "hsl(289, 70%, 50%)"
-        },
-        {
-            "country": "AI",
-            "hot dog": 12,
-            "hot dogColor": "hsl(310, 70%, 50%)",
-            "burger": 0,
-            "burgerColor": "hsl(164, 70%, 50%)",
-            "sandwich": 183,
-            "sandwichColor": "hsl(276, 70%, 50%)",
-            "kebab": 183,
-            "kebabColor": "hsl(81, 70%, 50%)",
-            "fries": 14,
-            "friesColor": "hsl(279, 70%, 50%)",
-            "donut": 161,
-            "donutColor": "hsl(59, 70%, 50%)"
-        },
-        {
-            "country": "AL",
-            "hot dog": 149,
-            "hot dogColor": "hsl(208, 70%, 50%)",
-            "burger": 3,
-            "burgerColor": "hsl(65, 70%, 50%)",
-            "sandwich": 167,
-            "sandwichColor": "hsl(296, 70%, 50%)",
-            "kebab": 177,
-            "kebabColor": "hsl(276, 70%, 50%)",
-            "fries": 113,
-            "friesColor": "hsl(252, 70%, 50%)",
-            "donut": 8,
-            "donutColor": "hsl(207, 70%, 50%)"
-        },
-        {
-            "country": "AM",
-            "hot dog": 157,
-            "hot dogColor": "hsl(51, 70%, 50%)",
-            "burger": 14,
-            "burgerColor": "hsl(203, 70%, 50%)",
-            "sandwich": 111,
-            "sandwichColor": "hsl(179, 70%, 50%)",
-            "kebab": 100,
-            "kebabColor": "hsl(281, 70%, 50%)",
-            "fries": 98,
-            "friesColor": "hsl(14, 70%, 50%)",
-            "donut": 1,
-            "donutColor": "hsl(128, 70%, 50%)"
-        }
-    ];
-
-    const renderItems = useCallback(() => {
-        return (
-            <Fragment>
-
-            </Fragment>
-        )
-    }, []);
 
     return (
-        <div className={ "relative w-full flex flex-row min-h-screen bg-slate-50  overflow-x-hidden" }>
-            <motion.div
-                className={ `h-auto min-h-[14] flex flex-row border cursor-pointer bg-white` }
-                onClick={ () => setShow(!show) }
-                initial={ { width: "0" } }
-                animate={ { width: show ? "75%" : "100%" } }
-                exit={ { width: "0" } }
-                transition={ { duration: 0.2 } }
-            >
-                <div className={ "w-6/12 h-screen bg-blue-500 flex flex-col" }>
-                    { renderItems() }
-                </div>
-                <div className={ "w-6/12 h-screen bg-red-500" }>
-                </div>
-            </motion.div>
-            <AnimatePresence>
-                { show && <motion.div
-                    className="min-h-screen bg-white overflow-hidden"
-                    initial={ { x: "50vw", width: "0" } }
-                    animate={ { x: 0, width: "25%" } }
-                    exit={ { x: "50vw", width: "0%" } }
+        <div className={ "relative w-full flex flex-row min-h-screen bg-slate-50 " }>
+            <div className={ "w-full flex flex-col" }>
+                <div className={ "w-full h-16 bg-white border-b-2 border-slate-300 shadow-lg shadow-slate-700" }></div>
+                <motion.div
+                    className={ `w-full h-auto min-h-[14] flex flex-row  cursor-pointer bg-slate-200` }
+                    onClick={ () => setShow(!show) }
+                    initial={ false }
+                    animate={ { width: show ? "80%" : "100%", } }
+                    exit={ { width: "0" } }
                     transition={ { duration: 0.2 } }
                 >
-                    <SideMenu menuItems={ items } />
-                </motion.div> }
-            </AnimatePresence>
+                    <div className={ "w-full mt-8 px-7 flex flex-col gap-4 h-auto transition-none overflow-hidden " }>
+                        <div className={ "w-full flex flex-row justify-between" }>
+                            <div className={ "w-[33%] bg-gradient-to-br from-primary via-secondary to-secondary h-auto min-h-[23rem] p-4 rounded-2xl flex justify-center items-center" }>
+                                <AreaChart3 />
+                            </div>
+                            <div className={ "w-[33%] bg-gradient-to-br from-primary via-secondary to-secondary h-auto min-h-[23rem] p-4 rounded-2xl flex justify-center items-center" }>
+                                <AreaChart />
+                            </div>
+                            <div className={ "w-[33%] bg-gradient-to-br from-primary via-secondary to-secondary h-auto min-h-[23rem] p-4 rounded-2xl flex justify-center items-center" }>
+                                <AreaChart2 />
+                            </div>
+                        </div>
+                        <div className={ "w-full min-h-screen bg-white border-2 border-slate-300 shadow-md rounded-xl" }>
+                            test
+                        </div>
+                    </div>
+                </motion.div>
+                <AnimatePresence initial={ false }>
+                    { show && <motion.div
+                        className="fixed right-0 min-h-screen max-h-screen w-[40%] bg-primary overflow-hidden"
+                        initial={ { width: 0 } }
+                        animate={ { width: "20%" } }
+                        exit={ { width: "0%" } }
+                        transition={ { duration: 0.2 } }
+                    >
+                        <div className={ "h-24  flex flex-col" } dir="rtl">
+                            <div className={ " w-full flex flex-row  bg-primary  items-center h-24" }>
+                                <img alt={ "logo" } src={ LOGO.toString() } className={ "w-12 h-16 mr-5" } />
+                                <div className={ "flex flex-col w-6/12 mr-5 text-white  font-IRANSansX text-xl" }>
+                                    <div className={ "w-full whitespace-nowrap font-IRANSansX font-bold text-base" }>
+                                        سامانه سد و مصارف
+                                    </div>
+                                    <div className={ "w-full whitespace-nowrap font-IRANSansX font-normal text-base" }>
+                                        خوزستان
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={ "h-auto bg-secondary  border-borderColor flex flex-col" } dir="rtl">
+                            <div className={ "w-full flex flex-row bg-gradient-to-bl  from-indigo-900 to-secondary rounded-md  border-borderColor items-center h-20" }>
+                                <img alt={ "PROFILE" } src={ PROFILE.toString() } className={ "w-14 h-14 rounded-full bg-gradient-to-bl from-primary to-borderColor border-primary border-2 mr-5" } />
+                                <div className={ "flex flex-col w-6/12 mr-5 text-zinc-200  font-IRANSansX text-sm" }>
+                                    <div className={ "w-full whitespace-nowrap font-IRANSansX font-black text-md" }>
+                                        حسین مولا
+                                    </div>
+                                    <div className={ "w-full mt-2 text-xs text-amber-100 whitespace-nowrap" }>
+                                        کارشناس نرم افزار
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <SideMenu menuItems={ items } />
+                    </motion.div> }
+                </AnimatePresence>
+            </div>
         </div >
     )
 }
